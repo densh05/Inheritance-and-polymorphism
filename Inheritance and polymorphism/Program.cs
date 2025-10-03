@@ -1,37 +1,36 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace Inheritance_and_polymorphism
 {
 
-    class BaseClass
+   class BaseClass
     {
-        public  virtual void Method()
+        public void Method(object obj)
         {
-            Console.WriteLine("Method from BaseClass");
+            if (obj is string)
+            {
+                Console.WriteLine("Its string");
+            }
+            else
+            {
+                {
+                    Console.WriteLine("Its not string");
+                }
+            }
+
         }
     }
 
-    class DerivedClass : BaseClass
-    {
-        public override void Method()
-        {
-            base.Method();
+   
 
-            Console.WriteLine("Method from DerivedClass");
-        }
-    }
-    
-
-     
      class Program
     {
         static void Main(string[] args)
         {
-            DerivedClass instance = new DerivedClass();
-            instance.Method();
+            BaseClass baseClass = new BaseClass();
 
-            
-           
+            baseClass.Method("Hi");
         }
     }
 }
